@@ -442,7 +442,7 @@ PreparedStatement ps = null;
                 
             }
             catch(Exception ex){
-                 JOptionPane.showMessageDialog(null, "TRANSPORTES ZAVALA/n REGISTRO UN VENTA!!");
+                 JOptionPane.showMessageDialog(null, "TRANSPORTES ZAVALA REGISTRO UNA VENTA!!");
              
     }//GEN-LAST:event_jButton1ActionPerformed
   }}

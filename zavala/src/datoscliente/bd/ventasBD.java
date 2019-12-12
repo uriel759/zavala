@@ -31,10 +31,10 @@ public class ventasBD extends conexion{
             consulta.setString(3, mventa.getId_ruta());
             
          
-        
          
          
-      }catch(SQLException ex){
+         
+             }catch(SQLException ex){
           
          throw new SQLException(ex);
       }
@@ -98,7 +98,7 @@ public class ventasBD extends conexion{
 		
 		boolean eliminar=false;
 				
-		String sql="DELETE FROM clientes WHERE idclientes= " + id;
+		String sql="DELETE FROM  WHERE idclientes= " + id;
 		try {
 			//super.connect();
 			stm=connection.createStatement();

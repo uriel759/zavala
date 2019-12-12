@@ -370,6 +370,7 @@ public class CamionJFrame extends javax.swing.JFrame {
     txtDestino.setText(" ");
     txtCampo.setText(" ");
     txtPrecio.setText(" ");
+    txtHora.setText(" ");
     }//GEN-LAST:event_BotonLimpiarActionPerformed
 
     private void BotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarActionPerformed

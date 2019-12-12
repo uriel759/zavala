@@ -5,6 +5,8 @@
  */
 package datosusuarios.forms;
 
+import app.REPORTE_CLIENTES;
+import app.REPORTE_VENTAS;
 import datoscamion.Datoscamion;
 import datosusuarios.Usuarios;
 
@@ -54,7 +56,8 @@ public class menu extends javax.swing.JFrame {
        
        }else if(mod.getIdTipo()== 2){
            Usuario.setVisible(false);
-           
+            Ventas1.setVisible(false);
+            Ventas2.setVisible(false);
        }
        
 Date sistFecha=new Date();
@@ -93,11 +96,13 @@ Date sistFecha=new Date();
         jLabel1 = new javax.swing.JLabel();
         hora = new javax.swing.JLabel();
         fecha = new javax.swing.JLabel();
+        Ventas1 = new javax.swing.JButton();
+        Ventas2 = new javax.swing.JButton();
 
         jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(229, 229, 152));
+        setBackground(new java.awt.Color(255, 51, 51));
 
         Registro.setBackground(new java.awt.Color(193, 226, 117));
         Registro.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
@@ -157,37 +162,63 @@ Date sistFecha=new Date();
         fecha.setFont(new java.awt.Font("Arial Narrow", 0, 24)); // NOI18N
         fecha.setText("FECHA");
 
+        Ventas1.setBackground(new java.awt.Color(193, 226, 117));
+        Ventas1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        Ventas1.setText("REPORTES DE VENTAS");
+        Ventas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ventas1ActionPerformed(evt);
+            }
+        });
+
+        Ventas2.setBackground(new java.awt.Color(193, 226, 117));
+        Ventas2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        Ventas2.setText("REPORTES DE CLIENTES");
+        Ventas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ventas2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(Registro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Ventas, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)
-                                .addComponent(Usuario)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LBL2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(261, 261, 261)
-                .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Ventas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Registro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Ventas2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(360, 360, 360)
+                                .addComponent(Ventas, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(16, 16, 16)
+                                        .addComponent(Usuario))
+                                    .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 10, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LBL2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +232,7 @@ Date sistFecha=new Date();
                             .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fecha))
                         .addGap(1, 1, 1)))
-                .addGap(5, 5, 5)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,9 +240,13 @@ Date sistFecha=new Date();
                     .addComponent(Ventas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Ventas1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ventas2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -255,6 +290,18 @@ System.exit(0);        // TODO add your handling code here:
             frmReg.setVisible(true);
             this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_UsuarioActionPerformed
+
+    private void Ventas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ventas1ActionPerformed
+       REPORTE_VENTAS frmReg = new  REPORTE_VENTAS();
+            frmReg.setVisible(true);
+            this.setVisible(false); // TODO add your handling code here:
+    }//GEN-LAST:event_Ventas1ActionPerformed
+
+    private void Ventas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ventas2ActionPerformed
+       REPORTE_CLIENTES frmReg = new  REPORTE_CLIENTES();
+            frmReg.setVisible(true);
+            this.setVisible(false);   // TODO add your handling code here:
+    }//GEN-LAST:event_Ventas2ActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -294,6 +341,8 @@ System.exit(0);        // TODO add your handling code here:
     private javax.swing.JButton Registro;
     private javax.swing.JButton Usuario;
     private javax.swing.JButton Ventas;
+    private javax.swing.JButton Ventas1;
+    private javax.swing.JButton Ventas2;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel hora;
     private javax.swing.JButton jButton3;

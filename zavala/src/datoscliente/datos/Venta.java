@@ -36,6 +36,7 @@ public class Venta {
     }
    private String Id_cliente; 
    private String asiento;
+   
    private String Id_ruta; 
    
    public Venta() {

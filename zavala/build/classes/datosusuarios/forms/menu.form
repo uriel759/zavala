@@ -11,7 +11,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="98" green="e5" red="e5" type="rgb"/>
+      <Color blue="33" green="33" red="ff" type="rgb"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -33,38 +33,51 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jButton5" min="-2" pref="150" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="Registro" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Ventas" min="-2" pref="137" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="425" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jButton3" min="-2" pref="149" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="Usuario" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Ventas1" max="32767" attributes="0"/>
+                                  <Component id="Registro" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Ventas2" min="-2" pref="321" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                              <Component id="Ventas" min="-2" pref="137" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel1" min="-2" pref="425" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jButton3" min="-2" pref="149" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="Usuario" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="hora" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="LBL" min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="LBL2" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="fecha" min="-2" pref="221" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="LBL" min="-2" pref="55" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="LBL2" min="-2" pref="90" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
-              <Component id="hora" min="-2" pref="172" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-              <Component id="fecha" min="-2" pref="221" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jButton5" min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,7 +96,7 @@
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="67" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -92,9 +105,14 @@
                   <Component id="jButton3" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="Usuario" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="226" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Ventas1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="Ventas2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="121" max="32767" attributes="0"/>
               <Component id="jButton5" min="-2" pref="36" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -207,6 +225,34 @@
         </Property>
         <Property name="text" type="java.lang.String" value="FECHA"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Ventas1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="75" green="e2" red="c1" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Century Gothic" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="REPORTES DE VENTAS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ventas1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Ventas2">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="75" green="e2" red="c1" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Century Gothic" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="REPORTES DE CLIENTES"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ventas2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

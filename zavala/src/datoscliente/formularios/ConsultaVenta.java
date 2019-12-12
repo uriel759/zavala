@@ -5,10 +5,13 @@
  */
 package datoscliente.formularios;
 
+import datoscamion.bd.conexion;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -77,6 +80,7 @@ DefaultTableModel modelo;
         jScrollPane4 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +104,13 @@ DefaultTableModel modelo;
             }
         });
 
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,11 +119,13 @@ DefaultTableModel modelo;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
-                        .addComponent(jButton1))
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,8 +133,10 @@ DefaultTableModel modelo;
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton1)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,6 +147,30 @@ DefaultTableModel modelo;
            datos.setVisible(true); 
            this.setVisible(false) ;        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  PreparedStatement ps = null;
+        try {
+
+            conexion objCon = new conexion();
+            Connection conn = objCon.getConexion();
+
+            int Fila = tabla.getSelectedRow();
+            String idruta = tabla.getValueAt(Fila, 0).toString();
+
+            ps = conn.prepareStatement("DELETE FROM ventas WHERE idcliente=?");
+            ps.setString(1, idruta);
+            ps.execute();
+
+            modelo.removeRow(Fila);
+            JOptionPane.showMessageDialog(null, "Registro Eliminado");
+         
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al Eliminar ");
+            System.out.println(ex.toString());
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
  
     /**
      * @param args the command line arguments
@@ -175,6 +214,7 @@ DefaultTableModel modelo;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables

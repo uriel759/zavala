@@ -340,7 +340,7 @@ if(confirmar == JOptionPane.YES_OPTION){
                 
             }
             catch(Exception ex){
-                 JOptionPane.showMessageDialog(null, "");
+                 JOptionPane.showMessageDialog(null, "Registro guardado");
             }   
             
             

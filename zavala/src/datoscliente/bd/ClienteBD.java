@@ -30,13 +30,12 @@ public class ClienteBD extends conexion{
             consulta.setString(1, mcliente.getNombre());
             consulta.setString(2, mcliente.getApellidos());
             consulta.setString(3, mcliente.getTelefono());
-            
-         
-        
+    consulta.executeUpdate();
+       JOptionPane.showMessageDialog(null, "Registro Guardado!...");   
          
          
       }catch(SQLException ex){
-          
+            
          throw new SQLException(ex);
       }
     }
