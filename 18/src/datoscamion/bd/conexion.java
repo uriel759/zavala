@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class conexion {
      
-    private String url = "jdbc:mysql://localhost:3306/usuarios";
+    private String url = "jdbc:mysql://localhost:3306/zavala";
     private String user = "root";
     private String pass = "admin";
     protected  Connection con = null;

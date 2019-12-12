@@ -60,6 +60,10 @@
               <Component id="LBL" min="-2" pref="55" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="LBL2" min="-2" pref="90" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+              <Component id="hora" min="-2" pref="172" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <Component id="fecha" min="-2" pref="221" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -71,6 +75,13 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="LBL" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="LBL2" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="hora" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="fecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="67" max="-2" attributes="0"/>
@@ -179,6 +190,22 @@
           <Font name="Impact" size="48" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="TRANSPORTES ZAVALA"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="hora">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Narrow" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="HORA"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="fecha">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Narrow" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="FECHA"/>
       </Properties>
     </Component>
   </SubComponents>
