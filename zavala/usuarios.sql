@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: zavala
+-- Host: localhost    Database: usuarios
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `camiones`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `camiones` (
   `idruta` int(11) NOT NULL AUTO_INCREMENT,
-  `origen` varchar(45) DEFAULT NULL,
+  `origen` varchar(45) NOT NULL,
   `destino` varchar(45) DEFAULT NULL,
   `precio` float DEFAULT NULL,
   `hora_salida` varchar(45) DEFAULT NULL,
   `hora_y_fecha_de_registro` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`idruta`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,34 +39,7 @@ CREATE TABLE `camiones` (
 
 LOCK TABLES `camiones` WRITE;
 /*!40000 ALTER TABLE `camiones` DISABLE KEYS */;
-INSERT INTO `camiones` VALUES (2,'zac','torreon',345,'12:00 p.m.','2019-12-11 16:55:42'),(3,'DURANGO','DALLAS,TEX',2000,'5:00 A.M.','2019-12-12 05:04:54');
 /*!40000 ALTER TABLE `camiones` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `clientes`
---
-
-DROP TABLE IF EXISTS `clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `clientes` (
-  `idclientes` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `apellido` varchar(45) NOT NULL,
-  `telefono` varchar(45) NOT NULL,
-  PRIMARY KEY (`idclientes`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `clientes`
---
-
-LOCK TABLES `clientes` WRITE;
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (3,'YURIDIA','RAMOS','6711171189'),(4,' JUANA',' MOTA','1896712312');
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -77,9 +50,10 @@ DROP TABLE IF EXISTS `tipo_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo_usuario` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +62,7 @@ CREATE TABLE `tipo_usuario` (
 
 LOCK TABLES `tipo_usuario` WRITE;
 /*!40000 ALTER TABLE `tipo_usuario` DISABLE KEYS */;
-INSERT INTO `tipo_usuario` VALUES (1,'Administrador'),(2,'Usuario'),(1,'Administrador'),(2,'Usuario');
+INSERT INTO `tipo_usuario` VALUES (1,'Administrador'),(2,'Usuario');
 /*!40000 ALTER TABLE `tipo_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,13 +74,17 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `idusuarios` int(11) NOT NULL AUTO_INCREMENT,
-  ` usuario` varchar(45) NOT NULL,
-  `pwd` varchar(45) NOT NULL,
-  `nombre` varchar(45) DEFAULT NULL,
-  `rol` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idusuarios`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `nombre` varchar(80) NOT NULL,
+  `correo` varchar(45) NOT NULL,
+  `last_session` datetime DEFAULT '0000-00-00 00:00:00',
+  `id_tipo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_tipo_idx` (`id_tipo`),
+  CONSTRAINT `id_tipo` FOREIGN KEY (`id_tipo`) REFERENCES `tipo_usuario` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,31 +93,8 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (5,'uriel','878b7308f305c51ab1acbaa985092d8698a63e54','uriel','uriel@uriel.com','0000-00-00 00:00:00',1),(6,'yuridia','b5f4e59f0563d655902144a700322666e73299ca','yuridia','yuridia@yuridia.com','0000-00-00 00:00:00',2),(7,'jose','4a3487e57d90e2084654b6d23937e75af5c8ee55','jose','jose@ose.com','0000-00-00 00:00:00',2);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `ventas`
---
-
-DROP TABLE IF EXISTS `ventas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `ventas` (
-  `idcliente` int(11) NOT NULL,
-  `asiento` int(11) NOT NULL,
-  `idruta` int(11) NOT NULL,
-  `hora` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `ventas`
---
-
-LOCK TABLES `ventas` WRITE;
-/*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -151,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-11 23:29:25
+-- Dump completed on 2019-12-11 23:28:54
