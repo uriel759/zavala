@@ -30,6 +30,8 @@ public class ventasBD extends conexion{
             consulta.setString(2, mventa.getAsiento());
             consulta.setString(3, mventa.getId_ruta());
             
+          consulta.executeUpdate();
+       JOptionPane.showMessageDialog(null, "Registro Guardado!...");   
          
          
          
